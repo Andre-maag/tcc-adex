@@ -1,0 +1,220 @@
+/* FAQ styles - paginas/css/faq.css */
+:root{
+  --bg: #f2f9ff;
+  --card: #ffffff;
+  --accent: #2fb6b0;
+  --text: #0f1720;
+  --muted: #6b7280;
+  --radius: 12px;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+  background: var(--bg);
+  color:var(--text);
+}
+
+.container{max-width:1100px;margin:0 auto;padding:0 20px}
+
+/* Forçar FAQ page a empilhar seções (sobrescreve regras globais de `main`) */
+.faq-page{display:flex;flex-direction:column;gap:24px;width:100%}
+.faq-page .container{max-width:1100px}
+
+/* Hero */
+.hero{padding:44px 0 24px;text-align:center}
+.hero .kicker{color:var(--muted);font-weight:600;letter-spacing:1px}
+.hero h1{font-size:48px;margin:8px 0 0;line-height:1;display:inline-flex;align-items:baseline;gap:12px;color:#000}
+.hero .accent{color:#000}
+
+/* Info section */
+.info{padding:20px 0 60px}
+.info h2{font-size:34px;margin:6px 0 20px}
+
+/* FAQ list */
+.faq-list{display:flex;flex-direction:column;gap:14px}
+.faq-item{background:var(--card);border-radius:12px;padding:0;box-shadow:0 6px 18px rgba(16,24,40,0.06);overflow:hidden;border:1px solid rgba(15,23,32,0.04)}
+.faq-toggle{appearance:none;border:0;background:transparent;width:100%;text-align:left;padding:20px;display:flex;align-items:center;justify-content:space-between;gap:12px;cursor:pointer}
+.faq-toggle:focus{outline:3px solid rgba(47,182,176,0.14);outline-offset:2px}
+.question{font-size:18px;font-weight:600;color:var(--text)}
+.chev{transition:transform .25s ease}
+
+.answer{padding:0 20px;max-height:0;overflow:hidden;transition:max-height .36s cubic-bezier(.2,.9,.2,1),padding .2s ease}
+.answer p{margin:14px 0 20px;color:var(--muted);line-height:1.6;font-size:16px}
+.answer a{color:var(--accent);text-decoration:none}
+
+/* When open */
+.faq-item.open .chev{transform:rotate(180deg)}
+.faq-item.open .answer{padding:12px 20px 20px}
+
+/* Layout tweaks */
+@media(min-width:900px){
+  .hero h1{font-size:64px}
+  .info h2{font-size:40px}
+}
+
+@media(min-width:1100px){
+  .faq-list{gap:18px}
+}
+
+/* Small devices */
+@media(max-width:480px){
+  .hero h1{font-size:34px}
+  .info h2{font-size:26px}
+  .faq-toggle{padding:16px}
+  .answer p{font-size:15px}
+}
+
+/* Dark mode overrides for FAQ */
+html[data-theme="dark"]{
+  --bg: #0b1b18;
+  --card: #12221f;
+  --accent: #65d6c8;
+  --text: #e6f6f0;
+  --muted: #9fbfb7;
+}
+
+html[data-theme="dark"] body {
+  background: var(--bg) !important;
+  color: var(--text) !important;
+}
+
+html[data-theme="dark"] .hero h1,
+html[data-theme="dark"] .hero .accent {
+  color: var(--text) !important;
+}
+
+html[data-theme="dark"] .info h2 {
+  color: var(--text) !important;
+}
+
+html[data-theme="dark"] .faq-item {
+  background: var(--card) !important;
+  border-color: rgba(255,255,255,0.04);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+}
+
+html[data-theme="dark"] .question {
+  color: var(--text) !important;
+}
+
+html[data-theme="dark"] .answer p {
+  color: var(--muted) !important;
+}
+
+html[data-theme="dark"] .answer a {
+  color: var(--accent) !important;
+}
+
+
+html[data-theme="dark"] .hero .kicker {
+  color: var(--muted) !important;
+}
+
+/* Additional responsive adjustments for faq.css */
+@media (max-width: 1024px) {
+  .hero h1 {
+    font-size: 48px;
+  }
+
+  .info h2 {
+    font-size: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .faq-page {
+    padding: 0 15px;
+  }
+
+  .hero {
+    padding: 30px 0 15px;
+  }
+
+  .hero h1 {
+    font-size: 36px;
+  }
+
+  .info {
+    padding: 15px 0 40px;
+  }
+
+  .info h2 {
+    font-size: 24px;
+    margin: 0 0 15px 0;
+  }
+
+  .faq-list {
+    gap: 12px;
+  }
+
+  .faq-toggle {
+    padding: 16px;
+  }
+
+  .question {
+    font-size: 16px;
+  }
+
+  .answer p {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 568px) {
+  .faq-page {
+    padding: 0 10px;
+  }
+
+  .hero {
+    padding: 20px 0 10px;
+  }
+
+  .hero .kicker {
+    font-size: 0.75rem;
+  }
+
+  .hero h1 {
+    font-size: 24px;
+    gap: 8px;
+  }
+
+  .info {
+    padding: 15px 0 30px;
+  }
+
+  .info h2 {
+    font-size: 18px;
+    margin: 0 0 12px 0;
+  }
+
+  .faq-list {
+    gap: 10px;
+  }
+
+  .faq-toggle {
+    padding: 12px;
+    gap: 8px;
+  }
+
+  .question {
+    font-size: 14px;
+  }
+
+  .chev {
+    width: 16px;
+    height: 16px;
+  }
+
+  .answer {
+    padding: 0 12px;
+  }
+
+  .answer p {
+    margin: 12px 0 15px;
+    font-size: 13px;
+  }
+}
+

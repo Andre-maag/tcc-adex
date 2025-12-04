@@ -1,0 +1,786 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+  background: linear-gradient(180deg, #f3f6fb 0%, #e6e9ef 100%);
+  color: #0f1720;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* ----- Header ----- */
+header {
+  background: linear-gradient(135deg, #135086 0%, #529ab7 100%);
+  padding: 10px 20px;
+  color: white;
+}
+
+.header-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  position: relative;
+}
+
+.header-inner .logo img {
+  width: 100px;
+  height: auto;
+}
+
+
+
+/* Navegação */
+.main-nav {
+  margin-right: 10px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.main-nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+  border-bottom: 1px solid #b4b3b3;
+}
+
+.main-nav a {
+  color: white;
+  text-decoration: none;
+  padding: 8px 12px;
+  font-weight: 600;
+  transition: color .15s;
+}
+
+.main-nav a:hover {
+  color: #64a6c0;
+}
+
+
+
+
+
+/* menu dropdown na nav */
+
+.menu-dropdown {
+  position: relative;
+}
+
+.botao-principal {
+  color: white;
+  padding: 8px 12px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: color .15s;
+  background: transparent;
+  text-decoration: none;
+  display: inline;
+  font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+  font-size: inherit;
+  vertical-align: middle;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.botao-principal:hover {
+  color: #1e73be;
+}
+
+.conteudo-dropdown {
+  display: none;
+  position: absolute;
+  top: 40px;
+  left: 0;
+  background: linear-gradient(180deg, #f3f6fb 0%, #e6e9ef 100%);
+  min-width: 180px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 50;
+}
+
+.conteudo-dropdown a {
+  display: block;
+  padding: 12px 16px;
+  color: #222;
+  text-decoration: none;
+}
+
+.conteudo-dropdown a:hover {
+  background: #64a6c0;
+  color: white;
+}
+
+/* MOSTRAR DROPDOWN */
+.menu-dropdown:hover .conteudo-dropdown {
+  display: block;
+}
+
+.menu-dropdown {
+  position: relative;
+}
+
+.conteudo-dropdown {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: linear-gradient(180deg, #f3f6fb 0%, #e6e9ef 100%);
+  min-width: 180px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+
+  transition: opacity .15s ease-in-out, visibility .15s;
+}
+
+.menu-dropdown:hover .conteudo-dropdown {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* fim do menu dropdown */
+
+
+
+
+/* ----- Conteudo  ----- */
+
+main {
+  max-width: 1100px;
+  margin: 30px auto;
+  display: flex;
+  gap: 20px;
+  padding: 0 20px;
+  flex: 1;
+}
+
+
+
+
+
+/* ----- final da pagina/rodape/footer ----- */
+
+footer {
+  margin-top: 30px;
+  color: white;
+  background: linear-gradient(180deg, #1c7383 0%, #08345a 100%);
+  padding: 28px 20px 16px;
+}
+
+.footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  gap: 24px;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.footer-col {
+  flex: 1;
+  min-width: 160px;
+}
+
+.footer-col h4 {
+  margin: 0 0 8px 0;
+}
+
+
+.footer-col p,
+.footer-col ul {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+}
+
+
+.footer-col ul li {
+  margin: 6px 0;
+}
+
+
+.footer-col a {
+  color: rgba(255, 255, 255, 0.95);
+  text-decoration: none;
+}
+
+.footer-bottom {
+  max-width: 1100px;
+  margin: 12px auto 0;
+  text-align: center;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+
+/* Reeditando footer */
+
+footer {
+  margin-top: 0;
+  color: white;
+  background: linear-gradient(135deg, #0d3a5c 0%, #3a7a9a 100%);
+  padding: 40px 20px 20px;
+  font-size: 15px;
+}
+
+/* Container principal */
+.footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+}
+
+.footer-logo {
+  flex-shrink: 0;
+}
+
+.footer-logo img {
+  width: 100px;
+  height: auto;
+}
+
+.footer-cols {
+  display: flex;
+  gap: 40px;
+  flex: 1;
+}
+
+/* Cada coluna */
+.footer-col {
+  flex: 1;
+  min-width: 220px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Títulos */
+.footer-col h4 {
+  margin-bottom: 10px;
+  font-size: 18px;
+  font-weight: 700;
+  color: #ffffff;
+  text-align: center;
+  width: 100%;
+}
+
+/* Texto e listas */
+.footer-col p,
+.footer-col ul,
+.footer-col a {
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+  width: 100%;
+  text-align: center;
+}
+
+.footer-col ul li {
+  margin: 8px 0;
+}
+
+.footer-col p {
+  text-align: center;
+  margin: 6px 0;
+}
+
+.footer-col a:hover {
+  opacity: 0.8;
+}
+
+/* Ícones alinhados */
+.email-link,
+.whatsapp-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+}
+
+.email-icon,
+.whatsapp-icon {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+}
+
+/* Redes sociais */
+.footer-col a img {
+  width: 28px;
+  height: 28px;
+  transition: transform 0.3s;
+}
+
+.footer-col a img:hover {
+  transform: scale(1.1);
+}
+
+.social-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.social-links a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+}
+
+/* Linha inferior */
+.footer-bottom {
+  max-width: 1100px;
+  margin: 28px auto 0;
+  text-align: center;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.75);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 14px;
+}
+
+/* codigo universal, adaptado em cada arquivo */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Layout principal */
+
+.img_contato {
+  width: 600px;
+  height: 900px;
+  margin-left: -80px;
+
+}
+
+.img_contato img {
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+}
+.esquerda {
+  flex: 4;
+  background: linear-gradient(180deg, #ffffff, #f3f6fb);
+  border-radius: 8px;
+  padding: 28px 28px 20px; /* mais espaço interno para os campos ocuparem */
+  box-shadow: 0 4px 10px rgba(16, 24, 40, 0.06);
+}
+
+.esquerda h1 {
+  margin: 0 0 1rem 0;
+  color: #1a3c8a;
+}
+
+.esquerda>p {
+  margin-bottom: 1.5rem;
+  color: #4a5568;
+}
+
+/* Formulário de contato */
+
+.contact-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.contact-form .form-field {
+  margin-bottom: 16px;
+}
+
+.contact-form label {
+  display: block;
+  margin-bottom: 4px;
+  color: #2d3748;
+  font-weight: 500;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form input[type="tel"] {
+  width: 100%;
+  height: 40px;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #d0d7de;
+  background: #fbfdff;
+  font-size: 1.1rem;
+  color: #0f1720;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.contact-form textarea {
+  width: 100%;
+  min-height: 200px;
+  padding: 0;
+  border-radius: 6px;
+  border: 1px solid #d0d7de;
+  background: #fbfdff;
+  font-size: 1.1rem;
+  color: #0f1720;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: #1e73be;
+  box-shadow: 0 0 0 3px rgba(30, 115, 190, 0.1);
+}
+
+.contact-form textarea {
+  min-height: 200px;
+  resize: vertical;
+  grid-column: 1 / -1;
+}
+
+.contact-form .btn-primary {
+  background: #1e73be;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+.contact-form .btn-primary:hover {
+  background: #1a5fa0;
+  transform: translateY(-1px);
+}
+
+.contact-form .form-submit {
+  grid-column: 1 / -1;
+  text-align: center;
+  margin-top: 0; /* remove espaço extra acima do botão */
+  margin-bottom: 0; /* remove espaço extra abaixo do botão */
+}
+
+/* ===== Layout corrigido: duas colunas para campos e Mensagem abaixo ===== */
+/* Este bloco vem por último para sobrescrever regras anteriores do formulário */
+.contact-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* duas colunas iguais, como na segunda imagem */
+  gap: 24px;
+  grid-template-areas:
+    "nome email"
+    "numero assunto"
+    "mensagem mensagem"
+    "submit submit";
+  grid-auto-rows: auto;
+  width: 100%;
+  margin-bottom: 0;
+}
+
+.field-nome { grid-area: nome; }
+.field-email { grid-area: email; }
+.field-numero { grid-area: numero; }
+.field-assunto { grid-area: assunto; }
+.field-mensagem { grid-area: mensagem; }
+.contact-form .form-submit { grid-area: submit; }
+
+/* Inputs ocupam toda a largura da coluna e têm altura consistente (não forçamos 100%) */
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form input[type="tel"] {
+  width: 100%;
+  height: 56px; /* inputs maiores para ocupar mais espaço */
+  padding: 12px 16px;
+  box-sizing: border-box;
+}
+
+.field-assunto textarea {
+  width: 100%;
+  min-height: 120px; /* assunto mais alto como na imagem */
+  padding: 12px 14px;
+  box-sizing: border-box;
+}
+
+.field-mensagem textarea {
+  width: 100%;
+  min-height: 240px; /* caixa de mensagem maior, ocupa as duas colunas */
+  padding: 14px 16px;
+  box-sizing: border-box;
+  resize: vertical;
+}
+
+.contact-form .form-submit {
+  text-align: center; /* botão centralizado conforme solicitado */
+  margin-top: 12px;
+  margin-bottom: 0;
+}
+
+/* Mobile: empilhar em 1 coluna */
+@media (max-width: 768px) {
+  .contact-form {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "nome"
+      "email"
+      "numero"
+      "assunto"
+      "mensagem"
+      "submit";
+  }
+
+  .contact-form input[type="text"],
+  .contact-form input[type="email"],
+  .contact-form input[type="tel"],
+  .contact-form textarea {
+    height: auto;
+  }
+
+  .img_contato { display: none; }
+}
+
+/* ===== Estilo do botão para ficar parecido com a imagem (círculo arredondado, cor) ===== */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: linear-gradient(180deg,#1e88c5,#1565a8);
+  color: #fff;
+  padding: 12px 26px;
+  font-size: 16px;
+  border-radius: 28px;
+  border: none;
+  box-shadow: 0 6px 18px rgba(21,101,168,0.18);
+}
+
+.btn-primary:active { transform: translateY(1px); }
+
+/* Painel direito */
+.direita {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.direita .topo,
+.direita .baixo {
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 3px 8px rgba(16, 24, 40, 0.04);
+}
+
+.direita h3 {
+  margin: 0 0 12px 0;
+  color: #1a3c8a;
+}
+
+.direita p {
+  margin: 0;
+  color: #4a5568;
+  line-height: 1.5;
+}
+
+.form-field {
+  margin-bottom: 20px;
+}
+
+.form-field label {
+  font-weight: 500;
+  color: #333;
+  font-size: 15px;
+}
+
+.form-field input,
+.form-field textarea {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  outline: none;
+  transition: 0.2s;
+  box-sizing: border-box;
+  background: #fff;
+}
+
+/* ===== Ajustes do formulário para largura 100% e responsividade ===== */
+.contact-form {
+  width: 100%;
+  max-width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  align-items: start;
+}
+
+.contact-form .form-field {
+  margin-bottom: 15px; /* espaçamento harmonioso */
+}
+
+.contact-form label {
+  display: block;
+  margin-bottom: 6px;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form input[type="tel"],
+.contact-form textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px 12px;
+  border-radius: 6px;
+  border: 1px solid #d0d7de;
+  background: #fbfdff;
+  font-size: 1rem;
+  color: #0f1720;
+}
+
+/* Campo de mensagem ocupa a largura total das colunas quando marcada com .full */
+.contact-form .form-field.full {
+  grid-column: 1 / -1;
+}
+
+/* Por padrão, textareas ficam na mesma coluna (não forçam span), mas podem ser ajustadas com .full */
+.contact-form textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+/* Mobile: uma coluna */
+@media (max-width: 768px) {
+  .contact-form {
+    grid-template-columns: 1fr;
+  }
+  .img_contato {
+    display: none; /* opcional: ocultar imagem para ganhar espaço no mobile */
+  }
+  
+  main {
+    flex-direction: column;
+    padding: 0 15px;
+  }
+
+  .esquerda {
+    width: 100%;
+  }
+
+  .img_contato img {
+    width: 100%;
+    height: auto;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  input,
+  textarea {
+    padding: 10px;
+    font-size: 16px;
+  }
+
+  button {
+    padding: 12px;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 568px) {
+  main {
+    flex-direction: column;
+    margin: 10px auto;
+    padding: 0 10px;
+    gap: 15px;
+  }
+
+  .esquerda,
+  .img_contato {
+    width: 100%;
+  }
+
+  .img_contato {
+    height: 200px;
+    display: block;
+  }
+
+  .img_contato img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .esquerda h4 {
+    font-size: 0.9rem;
+  }
+
+  .esquerda h1 {
+    font-size: 1.2rem;
+  }
+
+  .contact-form {
+    gap: 12px;
+  }
+
+  .form-field label {
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+  }
+
+  input,
+  textarea {
+    padding: 8px;
+    font-size: 16px;
+  }
+
+  button {
+    width: 100%;
+    padding: 10px;
+    font-size: 0.9rem;
+  }
+}
+
+}

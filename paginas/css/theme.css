@@ -1,0 +1,242 @@
+/* Global theme variables and dark-mode overrides */
+:root{
+  --bg: #f3f6fb;
+  --surface: #ffffff;
+  --text: #0f1720;
+  --muted: #6b7280;
+  --accent: #1e73be;
+  --card-border: rgba(15,23,32,0.04);
+}
+
+/* Smooth transitions for themeable properties */
+*{transition:background-color .3s ease,color .3s ease,border-color .3s ease,box-shadow .3s ease}
+
+html,body{background:var(--bg);color:var(--text)}
+
+/* NOTE: don't force surface colors globally (restores original light mode).
+  Apply surface/color defaults only when dark theme is active so light
+  styles in page-specific CSS are preserved. */
+
+/* Buttons */
+.btn-primary{background:var(--accent);color:#fff}
+
+/* Dark theme (green + gray tones) */
+[data-theme="dark"]{
+  --bg: #0b1b18;        /* deep green-gray */
+  --surface: #12221f;   /* card surface */
+  --text: #e6f6f0;      /* light text */
+  --muted: #9fbfb7;     /* muted text */
+  --accent: #65d6c8;    /* softer green accent */
+  --card-border: rgba(255,255,255,0.04);
+}
+
+/* Apply dark backgrounds and light text site-wide when dark mode is active */
+[data-theme="dark"] html,
+[data-theme="dark"] body {
+  background: var(--bg) !important;
+  color: var(--text) !important;
+}
+
+/* Make headings, paragraphs and most inline text use the light text color */
+[data-theme="dark"] h1,
+[data-theme="dark"] h2,
+[data-theme="dark"] h3,
+[data-theme="dark"] h4,
+[data-theme="dark"] h5,
+[data-theme="dark"] h6,
+[data-theme="dark"] p,
+[data-theme="dark"] li,
+[data-theme="dark"] span,
+[data-theme="dark"] strong,
+[data-theme="dark"] small,
+[data-theme="dark"] blockquote,
+[data-theme="dark"] td,
+[data-theme="dark"] th {
+  color: var(--text) !important;
+}
+
+/* Links keep accent color for visibility, but use light text when not specifically accented */
+[data-theme="dark"] a { color: var(--accent); }
+
+/* When dark theme is enabled, make common surface elements adopt the
+   theme variables so the dark theme covers the whole site. This avoids
+   page-specific hard-coded colors leaking through in dark mode. */
+[data-theme="dark"] header,
+[data-theme="dark"] .esquerda,
+[data-theme="dark"] .direita,
+[data-theme="dark"] .footer-inner,
+[data-theme="dark"] .footer-bottom,
+[data-theme="dark"] .faq-item,
+[data-theme="dark"] .conteudo-dropdown,
+[data-theme="dark"] .botao-whatsapp,
+[data-theme="dark"] .botao-contato,
+[data-theme="dark"] .botao-conheca-os,
+[data-theme="dark"] .container,
+[data-theme="dark"] main,
+[data-theme="dark"] .hero,
+[data-theme="dark"] .info{
+  background:var(--surface);
+  color:var(--text);
+}
+
+/* Additional page-specific overrides to catch hard-coded white backgrounds
+   so dark theme appears across entire site. These only apply in dark mode. */
+[data-theme="dark"] .conteudo-dropdown { background: var(--surface); color: var(--text); }
+[data-theme="dark"] .botao_dados_adicionais, [data-theme="dark"] .botao-conheca-os { background: var(--surface); color: var(--text); border-color: rgba(255,255,255,0.08); }
+[data-theme="dark"] .AP_interrupcao, [data-theme="dark"] .esquerda, [data-theme="dark"] .imagem_direita, [data-theme="dark"] .parceiros, [data-theme="dark"] .municipios-wrapper, [data-theme="dark"] .eventos-container, [data-theme="dark"] .eventos, [data-theme="dark"] .evento, [data-theme="dark"] .dados_gerais { background: var(--surface); color: var(--text); }
+[data-theme="dark"] .botao-whatsapp { background: var(--accent); color: #06130f; }
+[data-theme="dark"] .botao-contato, [data-theme="dark"] .botao_contato { background: var(--surface); color: var(--text); border-color: rgba(255,255,255,0.08); }
+[data-theme="dark"] .footer-col a, [data-theme="dark"] .footer-col p, [data-theme="dark"] .footer-bottom { color: var(--muted); }
+
+/* Borders/shadows adjustments for dark mode */
+[data-theme="dark"] .evento, [data-theme="dark"] .faq-item { box-shadow: none; border: 1px solid var(--card-border); }
+
+/* Header & nav adjustments in dark mode */
+[data-theme="dark"] header{background:linear-gradient(135deg,#083a3a 0%,#153a34 100%)}
+[data-theme="dark"] .main-nav a, [data-theme="dark"] .main-nav button { color:var(--text) }
+
+/* Footer */
+[data-theme="dark"] footer{background:linear-gradient(135deg,#0c2b27 0%,#153a34 100%)}
+
+/* Card borders */
+[data-theme="dark"] .faq-item, [data-theme="dark"] .esquerda, [data-theme="dark"] .direita {
+  border:1px solid var(--card-border);
+}
+
+/* Toggle button styles */
+.theme-toggle{display:inline-flex;align-items:center;justify-content:center;gap:6px;border:0;background:transparent;cursor:pointer;padding:8px;border-radius:8px}
+.theme-toggle svg{width:20px;height:20px;display:block}
+.theme-toggle .icon-moon{display:none}
+[data-theme="dark"] .theme-toggle .icon-moon{display:block}
+[data-theme="dark"] .theme-toggle .icon-sun{display:none}
+
+/* Make toggle more visible when positioned in header */
+header .theme-toggle {
+  padding: 8px 12px;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.16);
+  color: inherit;
+  transition: all 0.3s ease;
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  z-index: 100;
+}
+
+header .theme-toggle:hover {
+  background: rgba(255,255,255,0.2);
+  border-color: rgba(255,255,255,0.24);
+}
+
+/* Dark-mode appearance for the toggle inside header */
+[data-theme="dark"] header .theme-toggle {
+  background: rgba(255,255,255,0.08);
+  border-color: rgba(255,255,255,0.08);
+}
+
+[data-theme="dark"] header .theme-toggle:hover {
+  background: rgba(255,255,255,0.14);
+  border-color: rgba(255,255,255,0.14);
+}
+
+/* Ensure inputs and textareas adapt (best-effort) */
+[data-theme="dark"] input,
+[data-theme="dark"] textarea,
+[data-theme="dark"] select,
+[data-theme="dark"] .form-control {
+  /* Keep form fields light (white background + dark text) as requested */
+  background: #ffffff !important;
+  color: #0f1720 !important;
+  border-color: rgba(15,23,32,0.12) !important;
+}
+
+/* If there are inputs that should follow dark surfaces, they can use a utility class */
+[data-theme="dark"] .dark-input {
+  background: var(--surface) !important;
+  color: var(--text) !important;
+  border-color: var(--card-border) !important;
+}
+
+/* Dark mode for servicos.css elements */
+[data-theme="dark"] body {
+  background: linear-gradient(180deg, #0b1b18 0%, #0a1815 100%) !important;
+}
+
+[data-theme="dark"] .conteudo-dropdown {
+  background: var(--surface) !important;
+  color: var(--text) !important;
+}
+
+[data-theme="dark"] .conteudo-dropdown a {
+  color: var(--text) !important;
+}
+
+[data-theme="dark"] .conteudo-dropdown a:hover {
+  background: var(--accent) !important;
+  color: #06130f !important;
+}
+
+[data-theme="dark"] .trabalhos {
+  background: var(--surface) !important;
+  color: var(--text) !important;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] .servico h2 {
+  color: var(--accent) !important;
+}
+
+[data-theme="dark"] .servico p {
+  color: var(--muted) !important;
+}
+
+[data-theme="dark"] h1 {
+  color: var(--accent) !important;
+}
+
+/* Dark mode for FAQ elements (faq.css) */
+[data-theme="dark"] .faq-item {
+  background: var(--surface) !important;
+  color: var(--text) !important;
+}
+
+[data-theme="dark"] .question {
+  color: var(--text) !important;
+}
+
+[data-theme="dark"] .answer p {
+  color: var(--muted) !important;
+}
+
+[data-theme="dark"] .answer a {
+  color: var(--accent) !important;
+}
+
+[data-theme="dark"] .hero h1,
+[data-theme="dark"] .info h2 {
+  color: var(--text) !important;
+}
+
+[data-theme="dark"] .hero .kicker {
+  color: var(--muted) !important;
+}
+
+/* Dark mode for eventos.css elements */
+[data-theme="dark"] .evento,
+[data-theme="dark"] .evento-card {
+  background: var(--surface) !important;
+  color: var(--text) !important;
+}
+
+[data-theme="dark"] .evento p {
+  color: var(--text) !important;
+}
+
+[data-theme="dark"] .municipios-wrapper,
+[data-theme="dark"] .eventos-container {
+  background: var(--bg) !important;
+}
+
